@@ -1,8 +1,11 @@
+"use client"
 import {Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { useEffect } from "react";
 // make a card list
 
 interface Card {
@@ -17,8 +20,14 @@ async function getCards(): Promise<Card[]> {
     return res.json();
   }
 
-export default async function Home()  {
-    const cards = await getCards();
+const CardsList = () => {
+    const [cards, setCards] = useState<Card[]>([]);
+
+    useEffect(() => {
+        getCards().then(setCards);
+    }, []);
+
+    
 
     return (
         <main>
@@ -48,3 +57,5 @@ export default async function Home()  {
     </main>
     );
 }
+
+export default CardsList;
