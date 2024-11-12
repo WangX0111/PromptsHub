@@ -22,6 +22,7 @@ export default async function Home()  {
 
     return (
         <main>
+            <h1>Welcome to the Dashboard</h1>
             <div className="grid grid-cols-3 gap-8">
                 {cards.map((card) => (
                     <Card key={card.title} className="flex flex-col justify-between">
