@@ -25,24 +25,24 @@ export const columns: ColumnDef<Prompt>[] = [
     enableHiding: false
   },
   {
-    accessorKey: 'first_name',
-    header: 'NAME'
+    accessorKey: 'title',
+    header: 'TITLE'
   },
   {
-    accessorKey: 'country',
-    header: 'COUNTRY'
+    accessorKey: 'description',
+    header: 'DESCRIPTION'
   },
   {
-    accessorKey: 'email',
-    header: 'EMAIL'
+    accessorKey: 'category',
+    header: 'CATEGORY'
   },
   {
-    accessorKey: 'job',
-    header: 'COMPANY'
+    accessorKey: 'content',
+    header: 'CONTENT'
   },
   {
-    accessorKey: 'gender',
-    header: 'GENDER'
+    accessorKey: 'rating',
+    header: 'RATING'
   },
   {
     id: 'actions',

@@ -3,7 +3,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { Prompt } from '@/constants/data';
-import { fakeUsers } from '@/constants/mock-api';
+import { prompts } from '@/constants/supabase';
 import { cn } from '@/lib/utils';
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
@@ -25,17 +25,16 @@ export default async function PromptListingPage({}: TPromptListingPage) {
 //     ...(gender && { genders: gender })
 //   };
   const filters = {};
-  // mock api call
-  const data = await fakeUsers.getUsers(filters);
-  const totalUsers = data.total_users;
-  const prompt: Prompt[] = data.users;
+  const data = await prompts.getPrompts(filters);
+  const totalPrompts = data.totalPrompts;
+  const promptData: Prompt[] = data.prompts;
 
   return (
     <PageContainer scrollable>
       <div className="space-y-4">
         <div className="flex items-start justify-between">
           <Heading
-            title={`Prompt (${totalUsers})`}
+            title={`Prompt (${totalPrompts})`}
             description="Manage prompts (Server side table functionalities.)"
           />
 
@@ -47,7 +46,7 @@ export default async function PromptListingPage({}: TPromptListingPage) {
           </Link>
         </div>
         <Separator />
-        <PromptTable data={prompt} totalData={totalUsers} />
+        <PromptTable data={promptData} totalData={totalPrompts} />
       </div>
     </PageContainer>
   );

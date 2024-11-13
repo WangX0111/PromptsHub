@@ -48,7 +48,7 @@ import { Icons } from '@/components/icons';
 export const company = {
   name: 'Acme Inc',
   logo: GalleryVerticalEnd,
-  plan: 'Enterprise'
+  plan: 'prompt hub'
 };
 
 export default function AppSidebar() {

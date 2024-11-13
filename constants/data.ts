@@ -2,22 +2,23 @@ import { NavItem } from '@/types';
 
 export type Prompt = {
     id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone: string;
-    gender: string;
-    date_of_birth: string; // Consider using a proper date type if possible
-    street: string;
-    city: string;
-    state: string;
-    country: string;
-    zipcode: string;
-    longitude?: number; // Optional field
-    latitude?: number; // Optional field
-    job: string;
-    profile_picture?: string | null; // Profile picture can be a string (URL) or null (if no picture)
-  };
+    title: string;
+    description: string;
+    content: string;
+    rating: string; 
+    tags: string[];
+    input_requirements: string[];
+    example_inputs: string[];
+    example_outputs: string[];
+    category_id: number;
+    author_id: number;
+    license: string;
+    views: number;
+    likes: number;
+    status: string;
+    created_at: string;
+    updated_at: string;
+};
 
 
   export const navItems: NavItem[] = [
@@ -30,9 +31,9 @@ export type Prompt = {
       items: [] // Empty array as there are no child items for Dashboard
     },
     {
-      title: 'Employee',
-      url: '/dashboard/employee',
-      icon: 'user',
+      title: 'Prompts',
+      url: '/prompt',
+      icon: 'kanban',
       shortcut: ['e', 'e'],
       isActive: false,
       items: [] // No child items
@@ -42,35 +43,6 @@ export type Prompt = {
       url: '/dashboard/product',
       icon: 'product',
       shortcut: ['p', 'p'],
-      isActive: false,
-      items: [] // No child items
-    },
-    {
-      title: 'Account',
-      url: '#', // Placeholder as there is no direct link for the parent
-      icon: 'billing',
-      isActive: true,
-  
-      items: [
-        {
-          title: 'Profile',
-          url: '/dashboard/profile',
-          icon: 'userPen',
-          shortcut: ['m', 'm']
-        },
-        {
-          title: 'Login',
-          shortcut: ['l', 'l'],
-          url: '/',
-          icon: 'login'
-        }
-      ]
-    },
-    {
-      title: 'Kanban',
-      url: '/dashboard/kanban',
-      icon: 'kanban',
-      shortcut: ['k', 'k'],
       isActive: false,
       items: [] // No child items
     }
